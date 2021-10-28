@@ -1,0 +1,23 @@
+type_Of_Employee = {'regular': [800, 0.15], 'casual': [400, 0.08], 'job order': [615, 0.1]}
+input_name = input("Enter the name of employee: ")
+
+print("---------------------------------------------")
+print("REGULAR / CASUAL / JOB ORDER")
+print("---------------------------------------------")
+type_Of_Emp = input("Enter type of employee: ")
+
+try:
+    if type_Of_Emp in type_Of_Employee:
+        days_Worked = int(input("Enter No. of days worked: "))
+        overtime = int(input("Enter overtime (per hour): "))
+        
+        Salary = days_Worked * type_Of_Employee[type_Of_Emp][0]
+        overTimeSalary = type_Of_Employee[type_Of_Emp][0] * type_Of_Employee[type_Of_Emp][1] * overtime
+        overAllSalary = Salary + overTimeSalary
+        print("--------------------------------------")
+        print(f"{input_name} his/her salary is P {overAllSalary} pesos.")
+except:
+    print("INVALID")
+else:
+    if(type_Of_Emp not in type_Of_Employee):
+        print("Please select a valid employee type")
